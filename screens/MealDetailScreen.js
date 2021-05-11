@@ -9,7 +9,8 @@ import {
 } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
-import { MEALS } from '../data/dummy-data';
+import {useSelector, useDispatch} from 'react-redux';
+import {toggleFavorite} from  '../store/actions/meals';
 import HeaderButton from '../components/HeaderButton';
 import DefaultText from '../components/DefaultText';
 
@@ -25,6 +26,11 @@ const MealDetailScreen = props => {
   const mealId = props.navigation.getParam('mealId');
 
   const selectedMeal = MEALS.find(meal => meal.id === mealId);
+
+  const dispath = useDispatch();
+  const toggleFavoriteHandler = (mealId) => {
+    dispatch(toggleFavorite(mealId));
+  }
 
   return (
     <ScrollView>
@@ -57,7 +63,7 @@ MealDetailScreen.navigationOptions = navigationData => {
           title="Favorite"
           iconName="ios-star"
           onPress={() => {
-            console.log('Mark as favorite!');
+            toggleFavoriteHandler()
           }}
         />
       </HeaderButtons>
