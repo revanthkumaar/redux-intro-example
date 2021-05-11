@@ -1,13 +1,19 @@
 import { MEALS } from '../../data/dummy-data';
 
-const initialState = {
+const INITIAL_STATE = {
+
     meals: MEALS,
     filteredMeals: MEALS,
     favoriteMeals: []
-};
 
-const mealsReducer = (state = initialState, action) => {
+}
+
+
+const mealsReducer = (state = INITIAL_STATE, action) => {
+
+
     return state;
+
 }
 
 export default mealsReducer;
