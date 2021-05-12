@@ -21,10 +21,10 @@ const MealDetailScreen = props => {
 
   const selectedMeal = availableMeals.find(meal => meal.id === mealId);
 
-  const dispatch = useDispatch();
+
 
   const toggleFavoriteHandler = useCallback(() => {
-    dispatch(toggleFavorite(mealId));
+    useDispatch((toggleFavorite(mealId)));
   }, [dispatch, mealId]);
 
   useEffect(() => {
