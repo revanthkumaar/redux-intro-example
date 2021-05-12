@@ -1,16 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import { CATEGORIES } from '../data/dummy-data';
 import MealList from '../components/MealList';
 
-//TO ACCESS THE STATE VARIABLE IN THIS COMPONENT 
-import {useSelector} from 'react-redux';
-
 const CategoryMealScreen = props => {
   
   const catId = props.navigation.getParam('categoryId');
-
-  //accesing the state variable here 
 
   const availableMeals = useSelector(state => state.meals.filteredMeals);
 
